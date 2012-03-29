@@ -13,7 +13,7 @@ module Alloy
     desc 'build [PLATFORM]', 'Build the app and run in simulator or emulator'
     def build(platform = 'iphone')
       if platform == 'iphone'
-        Command::build :device => 'iphone'
+        Command.build :device => 'iphone'
       elsif platform == 'android'
         Command.build :device => 'android'
       else
