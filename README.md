@@ -1,4 +1,3 @@
-Toolbelt for Titanium Mobile development with Ruby.
-
+Toolbelt for Titanium Mobile development on Mac OS X.
 
 work in progress.
