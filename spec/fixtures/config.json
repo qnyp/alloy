@@ -1,0 +1,12 @@
+{
+  "titanium": {
+    "sdk_version": "1.8.1",
+  },
+  "iphone": {
+    "sdk_version": "4.3"
+  },
+  "android": {
+    "sdk_dir": "/Users/juno/apps/android-sdk",
+    "sdk_id": "6"
+  }
+}
