@@ -15,10 +15,13 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Alloy::VERSION
 
-  gem.add_dependency('colored', '~> 1.2')
-  gem.add_dependency('json', '~> 1.6.6')
-  gem.add_dependency('nokogiri', '~> 1.5.2')
-  gem.add_dependency('thor', '~> 0.14.6')
+  gem.add_development_dependency 'rake', '~> 0.9.0'
+  gem.add_development_dependency 'rdoc', '~> 3.0'
+  gem.add_development_dependency 'rspec', '~> 2.10.0'
+  gem.add_development_dependency 'simplecov', '~> 0.6.0'
 
-  gem.add_development_dependency('rspec', '~> 2.9.0')
+  gem.add_dependency 'colored', '~> 1.2'
+  gem.add_dependency 'json', '~> 1.6.6'
+  gem.add_dependency 'nokogiri', '~> 1.5.2'
+  gem.add_dependency 'thor', '~> 0.14.6'
 end
