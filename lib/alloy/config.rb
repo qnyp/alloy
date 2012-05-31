@@ -1,24 +1,29 @@
-# -*- encoding: utf-8 -*-
-
-require 'shellwords'
 require 'json'
 require 'nokogiri'
 
 module Alloy
 
   class Config
-    def self.load(path)
-      json = nil
-      open(path) do |file|
-        json = JSON.parse(file.read)
-      end
-    end
+    # def self.load(path)
+    #   json = nil
+    #   open(path) do |file|
+    #     json = JSON.parse(file.read)
+    #   end
+    # end
 
-    def initialize
-      open(File.join(project_root, 'tiapp.xml')) do |f|
+    # path - The String represents path to alloy.json
+    def initialize(path)
+      @json = nil
+      open(path) do |file|
+        @json = JSON.parse(file.read)
+      end
+
+      tiapp_path = @json['project_root'] + '/tiapp.xml'
+      open(tiapp_path) do |f|
         doc = Nokogiri::XML(f)
         @app_id = doc.xpath('ti:app/id').text
         @app_name = doc.xpath('ti:app/name').text
+        @titanium_sdk_version = doc.xpath('ti:app/sdk-version').text
       end
     end
 
@@ -40,7 +45,7 @@ module Alloy
     # Returns the path String.
     def titanium_sdk_path
       # TODO: linux support
-      Shellwords.escape('/Library/Application Support/Titanium')
+      @json['titanium']['sdk_path']
     end
 
     # Public: Returns Titanium Mobile SDK version string.
@@ -52,7 +57,7 @@ module Alloy
     #
     # Returns the version String.
     def titanium_sdk_version
-      '1.8.2'
+      @titanium_sdk_version
     end
 
     # Public: Returns iPhone SDK version string.
@@ -64,19 +69,7 @@ module Alloy
     #
     # Returns the version String.
     def iphone_sdk_version
-      '5.0'
-    end
-
-    # Public: Returns Android SDK version ID.
-    #
-    # Examples
-    #
-    #   android_sdk_id
-    #   # => '6'
-    #
-    # Returns the version String.
-    def android_sdk_id
-      '6'
+      @json['iphone']['sdk_version']
     end
 
     # Public: Returns path string to Android SDK installation.
@@ -88,31 +81,35 @@ module Alloy
     #
     # Returns the path String.
     def android_sdk_path
-      ENV['ANDROID_SDK']
+      @json['android']['sdk_path']
+    end
+
+    def android_avd_id
+      @json['android']['avd_id']
     end
 
     def titanium_assets_path
-      "#{titanium_sdk_path}/mobilesdk/osx/#{titanium_sdk_version}"
+      titanium_sdk_path + '/mobilesdk/osx/' + titanium_sdk_version
     end
 
     def titanium_iphone_path
-      "#{titanium_assets_path}/iphone"
+      titanium_assets_path + '/iphone'
     end
 
     def titanium_android_path
-      "#{titanium_assets_path}/android"
+      titanium_assets_path + '/android'
     end
 
     def titanium_iphone_builder
-      "#{titanium_iphone_path}/builder.py"
+      titanium_iphone_path + '/builder.py'
     end
 
     def titanium_android_builder
-      "#{titanium_android_path}/builder.py"
+      titanium_android_path + '/builder.py'
     end
 
     def project_root
-      Dir.getwd
+      @json['project_root']
     end
 
   end

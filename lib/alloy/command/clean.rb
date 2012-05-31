@@ -5,13 +5,24 @@ require 'fileutils'
 
 module Alloy::Command
 
-  class Clean
-    def initialize(platform)
-      @platform = platform
+  class Clean < Thor
+    desc 'clean iphone', 'Clean iPhone build directory'
+    def iphone
+      execute('iphone')
     end
 
-    def execute
-      case @platform
+    desc 'clean android', 'Clean Android build directory'
+    def android
+      execute('android')
+    end
+
+    # def initialize(platform)
+    #   @platform = platform
+    # end
+
+    private
+    def execute(platform)
+      case platform
       when 'android'
         clean :device => 'android'
       when 'iphone'
@@ -20,13 +31,11 @@ module Alloy::Command
         clean :device => 'android'
         clean :device => 'iphone'
       else
-        raise ArgumentError, "Platform '#{@platform}' is invalid"
+        raise ArgumentError, "Platform '#{platform}' is invalid"
       end
 
       true
     end
-
-    private
 
     def clean(options = {})
       case options[:device]

@@ -17,9 +17,10 @@ module Alloy
     end
 
     desc 'clean [PLATFORM]', 'Clean build directory for specified platform'
-    def clean(platform = nil)
-      Command::Clean.new(platform).execute
-    end
+    subcommand 'clean', Command::Clean
+    # def clean(platform = nil)
+    #   Command::Clean.new(platform).execute
+    # end
 
     # desc 'docco', 'Generate documents by Docco'
     # def docco
