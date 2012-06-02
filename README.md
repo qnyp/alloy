@@ -54,88 +54,88 @@ Before using alloy, you need to create and setup a [AVD (Android Virtual Devices
 
 #### AVD setup
 
-1. Launch Android SDK Manager and install `SDK Platform` and `Google APIs` of `Android 2.2 (API 8)`
+1.  Launch Android SDK Manager and install `SDK Platform` and `Google APIs` of `Android 2.2 (API 8)`
 
-    $ ANDROID_SDK_HOME/tools/android &
+        $ ANDROID_SDK_HOME/tools/android &
 
-2. Check what Android target availables
+2.  Check what Android target availables
 
-    $ ANDROID_SDK_HOME/tools/android list targets
-    Available Android targets:
-    ----------
-    id: 1 or "android-15"
-         Name: Android 4.0.3
-         Type: Platform
-         API level: 15
-         Revision: 3
-         Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800
-         ABIs : armeabi-v7a, x86
-    ----------
-    id: 2 or "Google Inc.:Google APIs:15"
-         Name: Google APIs
-         Type: Add-On
-         Vendor: Google Inc.
-         Revision: 2
-         Description: Android + Google APIs
-         Based on Android 4.0.3 (API level 15)
-         Libraries:
-          * com.google.android.media.effects (effects.jar)
-              Collection of video effects
-          * com.android.future.usb.accessory (usb.jar)
-              API for USB Accessories
-          * com.google.android.maps (maps.jar)
-              API for Google Maps
-         Skins: WVGA854, WQVGA400, WSVGA, WXGA720, HVGA, WQVGA432, WVGA800 (default), QVGA, WXGA800
-         ABIs : armeabi-v7a
+        $ ANDROID_SDK_HOME/tools/android list targets
+        Available Android targets:
+        ----------
+        id: 1 or "android-15"
+             Name: Android 4.0.3
+             Type: Platform
+             API level: 15
+             Revision: 3
+             Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800
+             ABIs : armeabi-v7a, x86
+        ----------
+        id: 2 or "Google Inc.:Google APIs:15"
+             Name: Google APIs
+             Type: Add-On
+             Vendor: Google Inc.
+             Revision: 2
+             Description: Android + Google APIs
+             Based on Android 4.0.3 (API level 15)
+             Libraries:
+              * com.google.android.media.effects (effects.jar)
+                  Collection of video effects
+              * com.android.future.usb.accessory (usb.jar)
+                  API for USB Accessories
+              * com.google.android.maps (maps.jar)
+                  API for Google Maps
+             Skins: WVGA854, WQVGA400, WSVGA, WXGA720, HVGA, WQVGA432, WVGA800 (default), QVGA, WXGA800
+             ABIs : armeabi-v7a
 
-3. Create a new AVD
+3.  Create a new AVD
 
-    $ ANDROID_SDK_HOME/tools/android create avd \
-      -n my_android-4.0.3 \
-      -t 1 \
-      --abi armeabi-v7a \
-      --skin WVGA800
+        $ ANDROID_SDK_HOME/tools/android create avd \
+          -n my_android-4.0.3 \
+          -t 1 \
+          --abi armeabi-v7a \
+          --skin WVGA800
 
-`my_android-4.0.3` is AVD name, `1` is ID of Android target.
+    `my_android-4.0.3` is AVD name, `1` is ID of Android target.
 
-AVD created under `~/.android/avd`.
+    AVD created under `~/.android/avd`.
 
-    $ ls -la ~/.android/avd
-    total 8
-    drwxr-xr-x  4 juno  staff  136  6  1 00:56 .
-    drwxr-xr-x  6 juno  staff  204  6  1 00:51 ..
-    drwxr-xr-x  4 juno  staff  136  6  1 00:56 my_android-4.0.3.avd
-    -rw-r--r--  1 juno  staff   69  6  1 00:56 my_android-4.0.3.ini
+        $ ls -la ~/.android/avd
+        total 8
+        drwxr-xr-x  4 juno  staff  136  6  1 00:56 .
+        drwxr-xr-x  6 juno  staff  204  6  1 00:51 ..
+        drwxr-xr-x  4 juno  staff  136  6  1 00:56 my_android-4.0.3.avd
+        -rw-r--r--  1 juno  staff   69  6  1 00:56 my_android-4.0.3.ini
+    
+        $ ANDROID_SDK_HOME/tools/android list avd
+        Available Android Virtual Devices:
+            Name: my_android-4.0.3
+            Path: /Users/juno/.android/avd/my_android-4.0.3.avd
+          Target: Android 4.0.3 (API level 15)
+             ABI: armeabi-v7a
+            Skin: WVGA800
+    
+    Yay!
 
-    $ ANDROID_SDK_HOME/tools/android list avd
-    Available Android Virtual Devices:
-        Name: my_android-4.0.3
-        Path: /Users/juno/.android/avd/my_android-4.0.3.avd
-      Target: Android 4.0.3 (API level 15)
-         ABI: armeabi-v7a
-        Skin: WVGA800
+4.  Enable SD Card support to install application
 
-Yay!
-
-4. Enable SD Card support to install application
-
-    $ echo "sdcard.size=256M" >> ~/.android/avd/my_android-4.0.3.avd/config.ini
+        $ echo "sdcard.size=256M" >> ~/.android/avd/my_android-4.0.3.avd/config.ini
 
 #### Running Android emulator
 
-1. Start adb server
+1.  Start adb server
 
-    $ ANDROID_SDK_HOME/platform-tools/adb start-server
+        $ ANDROID_SDK_HOME/platform-tools/adb start-server
 
-2. Launch Android emulator
+2.  Launch Android emulator
 
-    $ ANDROID_SDK_HOME/tools/emulator -avd my_android-4.0.3
+        $ ANDROID_SDK_HOME/tools/emulator -avd my_android-4.0.3
 
-After Android launch, emulator instance appears as a device.
+    After Android launch, emulator instance appears as a device.
 
-    $ ANDROID_SDK_HOME/platform-tools/adb devices
-    List of devices attached
-    emulator-5554   device
+        $ ANDROID_SDK_HOME/platform-tools/adb devices
+        List of devices attached
+        emulator-5554   device
 
 #### Build and install application to emulator
 
@@ -143,11 +143,11 @@ After Android launch, emulator instance appears as a device.
 
 #### Shutting down Android emulator
 
-1. Exit Android emulator app
+1.  Exit Android emulator app
 
-2. Kill adb server
+2.  Kill adb server
 
-    $ ANDROID_SDK_HOME/platform-tools/adb kill-server
+        $ ANDROID_SDK_HOME/platform-tools/adb kill-server
 
 ## Contributing
 
