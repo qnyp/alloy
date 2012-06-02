@@ -9,12 +9,6 @@ CLI Toolbelt for Titanium Mobile development on Mac OS X.
 * Ruby 1.9.3
 * CoffeeScript
 
-You can install CoffeeScript:
-
-    $ brew install node
-    $ curl http://npmjs.org/install.sh | sh
-    $ npm install -g coffee-script
-
 ## Usage
 
 ### Setup
