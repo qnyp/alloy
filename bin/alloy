@@ -1,15 +1,5 @@
 #!/usr/bin/env ruby
-# -*- encoding: utf-8 -*-
-
 $:.unshift File.expand_path("../../lib", __FILE__)
 require 'alloy'
-
-# begin
-#   require File.expand_path(File.join(Dir.pwd, 'config/config.rb'))
-# rescue LoadError => e
-#   puts "Couldn't load config/config.rb"
-#   puts "Please copy config/config.example.rb to config/config.rb and configure it."
-#   exit 1
-# end
 
 Alloy::Task.start
