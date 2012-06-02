@@ -4,8 +4,8 @@ require File.expand_path('../lib/alloy/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Junya Ogura"]
   gem.email         = ["junyaogura@gmail.com"]
-  gem.description   = %q{Toolbelt for Titanium Mobile development.}
-  gem.summary       = %q{Toolbelt for Titanium Mobile development.}
+  gem.description   = %q{CLI Toolbelt for Titanium Mobile development on Mac OS X.}
+  gem.summary       = %q{CLI Toolbelt for Titanium Mobile development on Mac OS X.}
   gem.homepage      = "https://github.com/qnyp/alloy"
 
   gem.files         = `git ls-files`.split($\)
