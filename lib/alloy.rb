@@ -1,16 +1,14 @@
-# -*- encoding: utf-8 -*-
-
-$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
-
 module Alloy
+  autoload :CLI, 'alloy/cli'
   autoload :Config, 'alloy/config'
-  autoload :Task, 'alloy/task'
+  autoload :VERSION, 'alloy/version'
 
-  module Command
-    autoload :Build, 'alloy/command/build'
-    autoload :Clean, 'alloy/command/clean'
-    autoload :CoffeeScript, 'alloy/command/coffee_script'
+  module Chore
+    autoload :CoffeeScript, 'alloy/chore/coffee_script'
   end
 
-  PERL_COLOR_FILTER = %Q{| perl -pe 's/^\\[DEBUG\\].*$/\\e[35m$&\\e[0m/g;s/^\\[INFO\\].*$/\\e[36m$&\\e[0m/g;s/^\\[WARN\\].*$/\\e[33m$&\\e[0m/g;s/^\\[ERROR\\].*$/\\e[31m$&\\e[0m/g;'}
+  module Task
+    autoload :Build, 'alloy/task/build'
+    autoload :Clean, 'alloy/task/clean'
+  end
 end

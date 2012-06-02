@@ -1,17 +1,9 @@
-# -*- encoding: utf-8 -*-
-
 require 'colored'
 
-module Alloy::Command
+module Alloy::Chore
 
   class CoffeeScript
-    def execute
-      compile_coffee
-    end
-
-    private
-
-    def compile_coffee
+    def self.run
       puts "Compiling CoffeeScript".blue
 
       failed = false

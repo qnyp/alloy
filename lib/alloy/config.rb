@@ -4,33 +4,38 @@ require 'nokogiri'
 module Alloy
 
   class Config
-    # def self.load(path)
-    #   json = nil
-    #   open(path) do |file|
-    #     json = JSON.parse(file.read)
-    #   end
-    # end
-
+    # Public: Creates a new config instance.
+    #
+    # Examples
+    #
+    #   config = Alloy::Config.new('alloy.json')
+    #
     # path - The String represents path to alloy.json
     def initialize(path)
-      @json = nil
-      open(path) do |file|
-        @json = JSON.parse(file.read)
-      end
-
-      tiapp_path = @json['project_root'] + '/tiapp.xml'
-      open(tiapp_path) do |f|
-        doc = Nokogiri::XML(f)
-        @app_id = doc.xpath('ti:app/id').text
-        @app_name = doc.xpath('ti:app/name').text
-        @titanium_sdk_version = doc.xpath('ti:app/sdk-version').text
-      end
+      load_alloy_json(path)
+      load_tiapp_xml
     end
 
+    # Public: Returns Application ID
+    #
+    # Examples
+    #
+    #   app_id
+    #   # => 'com.example.helloworld'
+    #
+    # Returns the Application ID String.
     def app_id
       @app_id
     end
 
+    # Public: Returns Application Name
+    #
+    # Examples
+    #
+    #   app_name
+    #   # => 'HelloWorld'
+    #
+    # Returns the Application Name String.
     def app_name
       @app_name
     end
@@ -44,7 +49,6 @@ module Alloy
     #
     # Returns the path String.
     def titanium_sdk_path
-      # TODO: linux support
       @json['titanium']['sdk_path']
     end
 
@@ -84,34 +88,109 @@ module Alloy
       @json['android']['sdk_path']
     end
 
+    # Public: Returns AVD ID string.
+    #
+    # Examples
+    #
+    #   android_avd_id
+    #   # => '1'
+    #
+    # Returns the AVD ID String.
     def android_avd_id
       @json['android']['avd_id']
     end
 
+    # Public: Returns Titanium assets directory path string.
+    #
+    # Examples
+    #
+    #   titanium_assets_path
+    #   # => '/Library/Application Support/Titanium/mobilesdk/osx/2.0.2.GA'
+    #
+    # Returns the AVD ID String.
     def titanium_assets_path
       titanium_sdk_path + '/mobilesdk/osx/' + titanium_sdk_version
     end
 
+    # Public: Returns Titanium iPhone assets directory path string.
+    #
+    # Examples
+    #
+    #   titanium_iphone_path
+    #   # => '/Library/Application Support/Titanium/mobilesdk/osx/2.0.2.GA/iphone'
+    #
+    # Returns the AVD ID String.
     def titanium_iphone_path
       titanium_assets_path + '/iphone'
     end
 
+    # Public: Returns Titanium Android assets directory path string.
+    #
+    # Examples
+    #
+    #   titanium_android_path
+    #   # => '/Library/Application Support/Titanium/mobilesdk/osx/2.0.2.GA/android'
+    #
+    # Returns the AVD ID String.
     def titanium_android_path
       titanium_assets_path + '/android'
     end
 
+    # Public: Returns Titanium iPhone builder.py path string.
+    #
+    # Examples
+    #
+    #   titanium_iphone_builder
+    #   # => '/Library/Application Support/Titanium/mobilesdk/osx/2.0.2.GA/iphone/builder.py'
+    #
+    # Returns the AVD ID String.
     def titanium_iphone_builder
       titanium_iphone_path + '/builder.py'
     end
 
+    # Public: Returns Titanium Android builder.py path string.
+    #
+    # Examples
+    #
+    #   titanium_android_builder
+    #   # => '/Library/Application Support/Titanium/mobilesdk/osx/2.0.2.GA/android/builder.py'
+    #
+    # Returns the AVD ID String.
     def titanium_android_builder
       titanium_android_path + '/builder.py'
     end
 
+    # Public: Returns project root directory path string.
+    #
+    # Examples
+    #
+    #   project_root
+    #   # => '/path/to/titanium-project-root'
+    #
+    # Returns the AVD ID String.
     def project_root
       @json['project_root']
     end
 
+
+    private
+
+    def load_alloy_json(path)
+      @json = {}
+      open(path) do |file|
+        @json = JSON.parse(file.read)
+      end
+    end
+
+    def load_tiapp_xml(filename = 'tiapp.xml')
+      path = @json['project_root'] + '/' + filename
+      open(path) do |f|
+        doc = Nokogiri::XML(f)
+        @app_id = doc.xpath('ti:app/id').text
+        @app_name = doc.xpath('ti:app/name').text
+        @titanium_sdk_version = doc.xpath('ti:app/sdk-version').text
+      end
+    end
   end
 
 end
