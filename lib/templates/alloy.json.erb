@@ -1,0 +1,24 @@
+<%
+project_root = Dir.pwd
+
+candidates = ['/Library/Application Support/Titanium',
+              '~/Library/Application Support/Titanium']
+titanium_sdk_path = candidates.find { |i| Dir.exist?(File.expand_path(i)) }
+
+candidates = [ENV['ANDROID_SDK'],
+              ENV['ANDROID_SDK_HOME']]
+android_sdk_path = candidates.find { |i| i != nil }
+-%>
+{
+  "project_root": "<%= project_root %>",
+  "titanium": {
+    "sdk_path": "<%= titanium_sdk_path %>"
+  },
+  "iphone": {
+    "sdk_version": "5.1"
+  },
+  "android": {
+    "sdk_path": "<%= android_sdk_path %>",
+    "avd_id": "1"
+  }
+}
