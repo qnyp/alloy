@@ -50,7 +50,7 @@ Run `clean` task to clean up intermediate files (`build/iphone/*` or `build/andr
 
 ### Building app and run in Android emulator
 
-Before using alloy, you need to create and setup a [AVD (Android Virtual Devices)](http://developer.android.com/intl/ja/guide/developing/devices/index.html) for rapid development process.
+Before using alloy, you need to create and setup a [AVD (Android Virtual Devices)](http://developer.android.com/intl/en/guide/developing/devices/index.html) for rapid development process.
 
 #### AVD setup
 
