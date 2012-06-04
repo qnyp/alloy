@@ -49,7 +49,7 @@ module Alloy
     #
     # Returns the path String.
     def titanium_sdk_path
-      @json['titanium']['sdk_path']
+      File.expand_path(@json['titanium']['sdk_path'])
     end
 
     # Public: Returns Titanium Mobile SDK version string.
@@ -85,7 +85,7 @@ module Alloy
     #
     # Returns the path String.
     def android_sdk_path
-      @json['android']['sdk_path']
+      File.expand_path(@json['android']['sdk_path'])
     end
 
     # Public: Returns AVD ID string.
