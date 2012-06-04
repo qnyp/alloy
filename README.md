@@ -54,7 +54,7 @@ Before using alloy, you need to create and setup a [AVD (Android Virtual Devices
 
 #### AVD setup
 
-1.  Launch Android SDK Manager and install `SDK Platform` and `Google APIs` of `Android 2.2 (API 8)`
+1.  Launch Android SDK Manager. Install `SDK Platform` and `Google APIs` of any Android versions (at least greater than Android 2.2)`
 
         $ ANDROID_SDK_HOME/tools/android &
 
