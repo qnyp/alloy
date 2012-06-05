@@ -9,6 +9,7 @@ module Alloy
 
   module Task
     autoload :Build, 'alloy/task/build'
+    autoload :TestFlight, 'alloy/task/testflight'
     autoload :Clean, 'alloy/task/clean'
   end
 end

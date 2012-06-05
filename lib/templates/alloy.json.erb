@@ -20,5 +20,15 @@ android_sdk_path = candidates.find { |i| i != nil }
   "android": {
     "sdk_path": "<%= android_sdk_path %>",
     "avd_id": "1"
+  },
+  "xcode": {
+    "build_sign": "iPhone Distribution: [Author].",
+    "build_mobileprovision": "/Library/MobileDevice/Provisioning Profiles/[AppName].mobileprovision",
+    "build_configuration": "Release",
+    "build_dstroot": "dstroot"
+  },
+  "testflight": {
+    "api_token": "********************************_*******",
+    "team_token": "********************************_******************************************"
   }
 }

@@ -172,6 +172,77 @@ module Alloy
       @json['project_root']
     end
 
+    # Public: Returns Xcode Build Signing Identity string.
+    #
+    # Examples
+    #
+    #   xcode_build_signing_identity
+    #   # => "iPhone Distribution: QNYP, LLC."
+    #
+    # Returns build_signing_identity String.
+    def xcode_build_signing_identity
+      @json['xcode']['build_signing_identity']
+    end
+
+    # Public: Returns Xcode Build Mobileprovision Path string.
+    #
+    # Examples
+    #
+    #   xcode_build_mobileprovision_path
+    #   # => "/Library/MobileDevice/Provisioning Profiles/TitaniumApp.mobileprovision"
+    #
+    # Returns build_mobileprovision_path String.
+    def xcode_build_mobileprovision_path
+      @json['xcode']['build_mobileprovision_path']
+    end
+
+    # Public: Returns Xcode Build Configuration string.
+    #
+    # Examples
+    #
+    #   xcode_build_configuration
+    #   # => "Release"
+    #
+    # Returns build_configuration String.
+    def xcode_build_configuration
+      @json['xcode']['build_configuration']
+    end
+
+    # Public: Returns Xcode Build Dstroot string.
+    #
+    # Examples
+    #
+    #   xcode_build_dstroot
+    #   # => "dstroot"
+    #
+    # Returns build_dstroot String.
+    def xcode_build_dstroot
+      @json['xcode']['build_dstroot']
+    end
+
+    # Public: Returns TestFlight Api Token string.
+    #
+    # Examples
+    #
+    #   testflight_api_token
+    #   # => "********************************_*******"
+    #
+    # Returns api_token String.
+    def testflight_api_token
+      @json['testflight']['api_token']
+    end
+
+    # Public: Returns TestFlight Team Token string.
+    #
+    # Examples
+    #
+    #   testflight_team_token
+    #   # => "********************************_******************************************"
+    #
+    # Returns team_token String.
+    def testflight_team_token
+      @json['testflight']['team_token']
+    end
 
     private
 
