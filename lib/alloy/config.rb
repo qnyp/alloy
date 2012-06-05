@@ -76,6 +76,30 @@ module Alloy
       @json['iphone']['sdk_version']
     end
 
+    # Public: Returns iOS Provisioning Profile uuid string.
+    #
+    # Examples
+    #
+    #   iphone_provisioning_profile_uuid
+    #   # => '********-****-****-****-********'
+    #
+    # Returns the version String.
+    def iphone_provisioning_profile_uuid
+      @json['iphone']['provisioning_profile_uuid']
+    end
+
+    # Public: Returns iOS Development Certificate Signing Identity string.
+    #
+    # Examples
+    #
+    #   iphone_development_certificate_signing_identity
+    #   # => 'QNYP, LLC. (**********)'
+    #
+    # Returns the version String.
+    def iphone_development_certificate_signing_identity
+      @json['iphone']['development_certificate_signing_identity']
+    end
+
     # Public: Returns path string to Android SDK installation.
     #
     # Examples
