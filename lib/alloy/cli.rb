@@ -10,17 +10,17 @@ module Alloy
     desc 'build SUBCOMMAND', 'Build the app and run in simulator or emulator'
     subcommand 'build', Task::Build
 
-    desc 'testflight', 'Upload to TestFlight'
-    def testflight
-      Task::TestFlight.run
-    end
-
     desc 'clean SUBCOMMAND', 'Clean up build directory'
     subcommand 'clean', Task::Clean
 
     desc 'coffee', 'Compile CoffeeScript into JavaScript'
     def coffee
       Chore::CoffeeScript.run
+    end
+
+    desc 'testflight', 'Upload to TestFlight'
+    def testflight
+      Chore::TestFlight.run
     end
 
     desc 'init', 'Generate alloy.json'

@@ -177,7 +177,7 @@ module Alloy
     # Examples
     #
     #   xcode_build_signing_identity
-    #   # => "iPhone Distribution: QNYP, LLC."
+    #   # => "iPhone Distribution: [Author]"
     #
     # Returns build_signing_identity String.
     def xcode_build_signing_identity
@@ -189,7 +189,7 @@ module Alloy
     # Examples
     #
     #   xcode_build_mobileprovision_path
-    #   # => "/Library/MobileDevice/Provisioning Profiles/TitaniumApp.mobileprovision"
+    #   # => "/Library/MobileDevice/Provisioning Profiles/[AppName].mobileprovision"
     #
     # Returns build_mobileprovision_path String.
     def xcode_build_mobileprovision_path

@@ -5,11 +5,11 @@ module Alloy
 
   module Chore
     autoload :CoffeeScript, 'alloy/chore/coffee_script'
+    autoload :TestFlight, 'alloy/chore/testflight'
   end
 
   module Task
     autoload :Build, 'alloy/task/build'
-    autoload :TestFlight, 'alloy/task/testflight'
     autoload :Clean, 'alloy/task/clean'
   end
 end

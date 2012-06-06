@@ -1,9 +1,7 @@
 require 'alloy'
 require 'colored'
-require 'shellwords'
-require 'thor'
 
-module Alloy::Task
+module Alloy::Chore
   class TestFlight
     PERL_COLOR_FILTER = %Q{| perl -pe 's/^\\[DEBUG\\].*$/\\e[35m$&\\e[0m/g;s/^\\[INFO\\].*$/\\e[36m$&\\e[0m/g;s/^\\[WARN\\].*$/\\e[33m$&\\e[0m/g;s/^\\[ERROR\\].*$/\\e[31m$&\\e[0m/g;'}
 
