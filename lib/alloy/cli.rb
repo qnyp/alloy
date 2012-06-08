@@ -10,6 +10,9 @@ module Alloy
     desc 'build SUBCOMMAND', 'Build the app and run in simulator or emulator'
     subcommand 'build', Task::Build
 
+    desc 'install SUBCOMMAND', 'Install to device'
+    subcommand 'install', Task::Install
+
     desc 'clean SUBCOMMAND', 'Clean up build directory'
     subcommand 'clean', Task::Clean
 
