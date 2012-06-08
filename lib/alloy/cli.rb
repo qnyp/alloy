@@ -21,6 +21,11 @@ module Alloy
       Chore::CoffeeScript.run
     end
 
+    desc 'testflight', 'Upload to TestFlight'
+    def testflight
+      Chore::TestFlight.run
+    end
+
     desc 'init', 'Generate alloy.json'
     def init
       template('alloy.json.erb', 'alloy.json')
