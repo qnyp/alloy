@@ -12,5 +12,6 @@ module Alloy
     autoload :Build, 'alloy/task/build'
     autoload :Install, 'alloy/task/install'
     autoload :Clean, 'alloy/task/clean'
+    autoload :Generate, 'alloy/task/generate'
   end
 end

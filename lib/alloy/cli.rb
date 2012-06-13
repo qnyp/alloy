@@ -16,6 +16,9 @@ module Alloy
     desc 'clean SUBCOMMAND', 'Clean up build directory'
     subcommand 'clean', Task::Clean
 
+    desc 'generate SUBCOMMAND', 'Generate'
+    subcommand 'generate', Task::Generate
+
     desc 'coffee', 'Compile CoffeeScript into JavaScript'
     def coffee
       Chore::CoffeeScript.run

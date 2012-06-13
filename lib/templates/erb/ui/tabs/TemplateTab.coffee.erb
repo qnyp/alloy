@@ -1,0 +1,7 @@
+<%= @window %>Tab = (window) ->
+  return Ti.UI.createTab
+    title: L('<%= @window %>Tab')
+    icon: '/images/tabs/KS_nav_views.png'
+    window: window
+
+module.exports = <%= @window %>Tab

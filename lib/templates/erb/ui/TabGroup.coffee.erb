@@ -1,0 +1,32 @@
+# タブグループ
+TabGroup = ->
+
+  # 各ウィンドウのコンストラクタで持ちまわるオブジェクト
+  global =
+    tabs:
+      # global.tabs.add (don't remove this line)
+    windows:
+      # global.windows.add (don't remove this line)
+
+  # モジュールの読み込み
+  utils = require('ui/utils')
+
+  # タブグループの生成
+  self = Ti.UI.createTabGroup()
+  global.tabGroup = self
+
+  # Tabの読み込み
+  # require tabs (don't remove this line)
+
+  # Windowの読み込み
+  # require window (don't remove this line)
+
+  # コンテンツの生成
+  # create new window and tab (don't remove this line)
+
+  # タブグループへタブを追加します
+  # add tabs to tabGroup (don't remove this line)
+
+  return self
+
+module.exports = TabGroup

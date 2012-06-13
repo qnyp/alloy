@@ -1,0 +1,107 @@
+BaseWindow = require('common/BaseWindow')
+
+# <%= @window %>
+#
+# @params Object
+# @return Ti.UI.Window
+class <%= @window %>Window extends BaseWindow
+  # 依存モジュール
+  config: require('config')
+  styles: require('ui/styles').Styles
+  utils: require('ui/utils')
+
+  # プロパティ
+  global: null
+  window: null
+  sample: null
+
+  # コンストラクタ
+  # @param global [Object]
+  constructor: (@global) ->
+    @_debug "<%= @window %>Window"
+    @initializeModels()
+    @initializeViews()
+    @initializeEvents()
+
+  # モデルの初期化
+  # @param params [Object]
+  initializeModels: (params) ->
+    @_debug "initializeModels"
+
+  # ビューの初期化
+  initializeViews: ->
+    @_debug "initializeViews"
+
+    # コンテンツビューを生成します
+    @contentView = @utils.createContentView()
+    @window = @utils.createWindow(@contentView, @styles.properties.<%= @window %>Window)
+
+    # テーブルビューの生成
+    @tableView = @_createTableView()
+
+    @window.add(@tableView)
+
+  # イベントの初期化
+  initializeEvents: ->
+    @_debug "initializeEvents"
+    @window.addEventListener('focus', @_windowFocusCallback)
+    @tableView.addEventListener('click', @_tableViewClickCallback)
+
+  #
+  # コールバック
+  #
+  _windowFocusCallback: =>
+    @_debug('windowFocusCallback')
+
+  _tableViewClickCallback: (e)=>
+    @_debug('tableViewClickCallback')
+
+  #
+  # プライベート関数
+  #
+
+  # テーブルビューを生成して返します。
+  _createTableView: (data)=>
+    @_debug('_createTableView')
+    return Ti.UI.createTableView
+      data: @_createTableData()
+
+  # テーブルビュー用データを返します。
+  _createTableData: =>
+    @_debug('_createTableData')
+    section = Ti.UI.createTableViewSection()
+    list = []
+    # dummy images
+    for i in [1..10]
+      list.push('http://farm8.staticflickr.com/7151/6739915019_a5864fda95_b.jpg')
+
+    for url in list
+      row = Ti.UI.createTableViewRow
+        height: 100
+        url: url
+      view = Ti.UI.createView
+        height: 100
+        width: Ti.Platform.displayCaps.platformWidth
+      view.add Ti.UI.createImageView
+        image: url
+        hires: true
+        top: 10
+        left: 5
+        bottom: 10
+        height: 80
+        width: 80
+      view.add Ti.UI.createLabel
+        left: 90
+        right: 5
+        top: 5
+        bottom: 5
+        font: {fontSize: 12}
+        text: 'sample view'
+      row.add(view)
+      section.add(row)
+      view = null
+    return [section]
+
+module.exports = <%= @window %>Window
+
+
