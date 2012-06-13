@@ -69,33 +69,8 @@ exports.Styles =
       width: 100
       defaultImage:'/images/user_no_image.png'
       hires: true
-    movieThumbnailXS:
-      height: 73
-      width: 51
-      defaultImage:'/images/movie_no_image.png'
-      # preventDefaultImage: true
-      hires: true
-    movieThumbnailS:
-      height: 91
-      width: 64
-      defaultImage:'/images/movie_no_image.png'
-      # preventDefaultImage: true
-      hires: true
-    movieThumbnailM:
-      height: 182
-      width: 128
-      defaultImage:'/images/movie_no_image.png'
-      # preventDefaultImage: true
-      hires: true
-    movieThumbnailL:
-      height: 273
-      width: 192
-      defaultImage:'/images/movie_no_image.png'
-      # preventDefaultImage: true
-      hires: true
 
   properties:
-    # 0 ログインフロー
     SampleWindow:
       backgroundColor: '#fff'
       title: L('SampleWindowTitle')
