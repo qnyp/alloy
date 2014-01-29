@@ -1,5 +1,7 @@
 # alloy
 
+[![Code Climate](https://codeclimate.com/github/qnyp/alloy.png)](https://codeclimate.com/github/qnyp/alloy)
+
 CLI Toolbelt for Titanium Mobile development on Mac OS X.
 
 ## Prerequisite
